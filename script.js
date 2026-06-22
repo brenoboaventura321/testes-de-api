@@ -2,8 +2,10 @@
 //  NexaPlay — script.js  (controle total do frontend)
 // ─────────────────────────────────────────────
 
-const API = "http://localhost:3001";
-
+// Detecta automaticamente se está no PC (localhost) ou na Vercel
+const API = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" 
+  ? "http://localhost:3001" 
+  : "";
 // ── Catálogo ──────────────────────────────────
 const CATALOG = [
   // G1: Destaques (Ofertas e Grandes Títulos)
