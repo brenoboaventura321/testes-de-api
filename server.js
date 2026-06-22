@@ -223,6 +223,12 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.listen(PORT, () =>
-  console.log(`✅ NexaPlay server → http://localhost:${PORT}`)
-);
+// Só roda o .listen() se estiver no seu PC local
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () =>
+    console.log(`✅ NexaPlay server → http://localhost:${PORT}`)
+  );
+}
+
+// Exporta para a Vercel transformar em Serverless
+export default app;
